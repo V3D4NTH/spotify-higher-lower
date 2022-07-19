@@ -1,7 +1,7 @@
 import './Score.css'
 
-export default function Score() {
+export default function Score(props) {
     return(
-        <h2>This is your score</h2>
+        <h2>{props.scoreType}: {props.score}</h2>
     )
 }
