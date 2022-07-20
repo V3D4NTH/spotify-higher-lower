@@ -63,7 +63,14 @@
 
 .answerBtn #up-arrow {
     transform: rotate(180deg);
-    
+}
+
+.answerBtn:hover #up-arrow {
+    transform: rotate(180deg) translateY(+3px);
+}
+
+.answerBtn:hover #down-arrow {
+    transform: translateY(+3px);
 }
 
 .answerBtn #down-arrow {
