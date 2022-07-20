@@ -1,0 +1,11 @@
+.scoreKeeper {
+    width:max-content;
+    height:20px;
+    padding:0;
+    float:right;
+    margin:0;
+}
+
+.scoreKeeper:first-of-type {
+    float:left;
+}

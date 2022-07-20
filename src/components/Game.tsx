@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import Score from './Score'
 import './Game.css'
+import './buttons.css'
 import db2010 from '../data/2010data.json'
 import db2020 from '../data/2020data.json'
 import Arrow from '../assets/arrow.svg'
@@ -68,34 +69,40 @@ export default function Game() {
                 {!gameOver && "game on"}
             </div> */}
             <div id="leftPanel" className="gamePanel">
+            {/* <iframe Style="position:absolute;border-radius:12px" src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe> */}
                 <div className="panelText">
-                    Song 1: {songOne.SONGNAME} {' '}
-                    Loudness: {songOne.danceability}
+                    <p className="songName">{songOne.SONGNAME}</p>
+                    has 
+                    <p className="" >{songOne.danceability}</p>
                 </div>
             </div>
             <div id="rightPanel" className="gamePanel">
                 <div className="panelText">
-                    Song 2: {songTwo.SONGNAME} {' '}
-                    Loudness: {songTwo.danceability}
-                </div>
-                
-                <button
+                    <p className="songName">{songTwo.SONGNAME}</p>
+                    {/* has 
+                    <p className="" >{songTwo.danceability}</p> */}
+                    <button
                     className="answerBtn"
                     onClick={() => UpdateGameOrGameOver(true, songOne.danceability, songTwo.danceability)}
-                >
-                    Higher <img src={Arrow} id="up-arrow" alt="up-arrow"/>
-                </button>
-                <button
-                    className="answerBtn"
-                    onClick={() => UpdateGameOrGameOver(false, songOne.danceability, songTwo.danceability)}
-                >
-                    Lower <img src={Arrow} id="down-arrow" alt="down-arrow"/>
-                </button>
+                    >
+                        Higher <img src={Arrow} id="up-arrow" alt="up-arrow"/>
+                    </button>
+                    <button
+                        className="answerBtn"
+                        onClick={() => UpdateGameOrGameOver(false, songOne.danceability, songTwo.danceability)}
+                    >
+                        Lower <img src={Arrow} id="down-arrow" alt="down-arrow"/>
+                    </button>
+                </div>
+                
+                
             </div>
-            <Score className="HighScoreKeeper" scoreType="High Score" score={highScore} />
-            <Score className="CurrentScoreKeeper" scoreType="Current Score" score={currentScore} />
-
+            <div className="scoreContainer">
+                <Score scoreType="High Score" score={highScore} />
+                <Score scoreType="Current Score" score={currentScore} />
+            </div>
         </div>
+        
     )
 
 }

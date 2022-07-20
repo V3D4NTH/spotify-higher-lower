@@ -19,60 +19,24 @@
     display:flex;
     flex-direction:column;
     justify-content: center;
+    align-items:center;
     width:100%;
     height:100%; 
-    float:center;
+    text-align:center;
 }
 
-.answerBtn {
-    color: rgb(255, 255, 67);
-    background: transparent;
-    border-radius: 30px;
-    width:200px;
-    border-color: white;
-    border-style: solid;
-    padding:1rem 2rem;
-    font-size:1.2em;
-    transition: background-color 0.2s 0s ease-in;
-    display:flex;
+.songName {
+    font-size: 3rem;
+    margin:-30px 0 30px 0;
+}
+
+.scoreContainer {
+    position:absolute;
+    width:100vw;
+    /* display:flex;
     flex-direction:row;
-    justify-content:center;
-    align-items:center;
-}
-
-.answerBtn:hover {
-    color:black;
-    background: white;
-    cursor:pointer;
-
-}
-
-.answerBtn:focus {
-    cursor:pointer;
-}
-
-.answerBtn img {
-    width:10px;
-    margin: 0 0 0 10px;
-    filter: invert(100%) sepia(47%) saturate(2%) hue-rotate(81deg) brightness(110%) contrast(101%);
-}
-
-.answerBtn:hover img {
-    filter: invert(0%) sepia(34%) saturate(5552%) hue-rotate(274deg) brightness(99%) contrast(109%);
-}
-
-.answerBtn #up-arrow {
-    transform: rotate(180deg);
-}
-
-.answerBtn:hover #up-arrow {
-    transform: rotate(180deg) translateY(+3px);
-}
-
-.answerBtn:hover #down-arrow {
-    transform: translateY(+3px);
-}
-
-.answerBtn #down-arrow {
-    margin-left:15px;
+    justify-content:space-between; */
+    bottom:24px;
+    padding:0 24px;
+    box-sizing:border-box;
 }
