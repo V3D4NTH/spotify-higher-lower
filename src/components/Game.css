@@ -7,7 +7,11 @@
     height: 100%;
     width: 50vw;
     float:left;
-    background-color:green;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.66);
+
+    background-image:url(https://i.scdn.co/image/ab67616d0000b273e813c020ab6245eae154ec16);
+    background-size:cover;
+    background-repeat:no-repeat;
     margin:auto 0;
 }
 
@@ -33,10 +37,20 @@
 .scoreContainer {
     position:absolute;
     width:100vw;
-    /* display:flex;
-    flex-direction:row;
-    justify-content:space-between; */
     bottom:24px;
     padding:0 24px;
     box-sizing:border-box;
+}
+
+iframe {
+    position:absolute;
+    border-radius: 12px;
+    height:80px;
+    width:50%;
+    margin-top:50px;
+    right:0;
+}
+
+iframe:first-of-type{
+    left:0;
 }

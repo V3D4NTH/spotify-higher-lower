@@ -8,7 +8,6 @@ import Arrow from '../assets/arrow.svg'
 
 export default function Game() {
 
-
     const getRandomSong = (_not:number, __not:number):number => {
         let randomNumber = Math.floor(Math.random() * db2020.length)
         if (randomNumber === _not || randomNumber === __not)
@@ -45,8 +44,10 @@ export default function Game() {
         }
         else {
             setGameOver(true)
-            if (currentScore > parseInt(window.localStorage.getItem("High Score")))
+            const prevHighScore = window.localStorage.getItem("High Score")
+            if (prevHighScore === null || currentScore > parseInt(prevHighScore))
                 window.localStorage.setItem("High Score", currentScore.toString())
+
         }
     }
 
@@ -69,7 +70,9 @@ export default function Game() {
                 {!gameOver && "game on"}
             </div> */}
             <div id="leftPanel" className="gamePanel">
-            {/* <iframe Style="position:absolute;border-radius:12px" src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe> */}
+            <iframe src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="25%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="50%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            
                 <div className="panelText">
                     <p className="songName">{songOne.SONGNAME}</p>
                     has 
