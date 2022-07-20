@@ -3,9 +3,10 @@ import Score from './Score'
 import './Game.css'
 import db2010 from '../data/2010data.json'
 import db2020 from '../data/2020data.json'
-
+import Arrow from '../assets/arrow.svg'
 
 export default function Game() {
+
 
     const getRandomSong = (_not:number, __not:number):number => {
         let randomNumber = Math.floor(Math.random() * db2020.length)
@@ -61,34 +62,40 @@ export default function Game() {
 
 
     return (
-        <>
-            <div>
-                {gameOver && "gameOver"}
+        <div className="gameContainer">
+            {/* <div>
+                {gameOver && "game over"}
+                {!gameOver && "game on"}
+            </div> */}
+            <div id="leftPanel" className="gamePanel">
+                <div className="panelText">
+                    Song 1: {songOne.SONGNAME} {' '}
+                    Loudness: {songOne.danceability}
+                </div>
             </div>
-            <div>
-                Song 1: {songOne.SONGNAME} {' '}
-                Loudness: {songOne.danceability}
-            </div>
-            <div>
-                Song 2: {songTwo.SONGNAME} {' '}
-                Loudness: {songTwo.danceability}
-            </div>
-            <div>
+            <div id="rightPanel" className="gamePanel">
+                <div className="panelText">
+                    Song 2: {songTwo.SONGNAME} {' '}
+                    Loudness: {songTwo.danceability}
+                </div>
+                
                 <button
+                    className="answerBtn"
                     onClick={() => UpdateGameOrGameOver(true, songOne.danceability, songTwo.danceability)}
                 >
-                    Higher
+                    Higher <img src={Arrow} id="up-arrow" alt="up-arrow"/>
                 </button>
                 <button
+                    className="answerBtn"
                     onClick={() => UpdateGameOrGameOver(false, songOne.danceability, songTwo.danceability)}
                 >
-                    Lower
+                    Lower <img src={Arrow} id="down-arrow" alt="down-arrow"/>
                 </button>
             </div>
             <Score className="HighScoreKeeper" scoreType="High Score" score={highScore} />
             <Score className="CurrentScoreKeeper" scoreType="Current Score" score={currentScore} />
 
-        </>
+        </div>
     )
 
 }
