@@ -62,28 +62,36 @@ export default function Game() {
     const [highScore , setHighScore] = useState(window.localStorage.getItem("High Score") || 0)
     const [currentScore, setCurrentScore] = useState(0)
 
+    const [musicalAttribute, setMusicalAttribute] = useState("danceability")
 
     return (
         <div className="gameContainer">
-            {/* <div>
-                {gameOver && "game over"}
-                {!gameOver && "game on"}
-            </div> */}
+            <div>
+                {/* {gameOver && "game over"} */}
+                {/* {!gameOver && "game on"} */}
+                {/* {String(gameOver)} */}
+                {/* {gameOver ? "game over"  : "game"} */}
+            </div>
+
+                <div className="centerIcon">
+                </div>
+            
+
             <div id="leftPanel" className="gamePanel" style={{backgroundImage:`url(${songOne.image_url})`}}>
-            <iframe src={`https://open.spotify.com/embed/track/${songOne.id}?utm_source=generator`} width="25%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <iframe src={`https://open.spotify.com/embed/track/${songTwo.id}?utm_source=generator`} width="50%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <iframe src={`https://open.spotify.com/embed/track/${songOne.id}?utm_source=generator`}  height="80" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <iframe src={`https://open.spotify.com/embed/track/${songTwo.id}?utm_source=generator`}  height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             
                 <div className="panelText">
                     <p className="songName">{songOne.SONGNAME}</p>
                     has 
-                    <p className="measurement" >{songOne.danceability}</p>
+                    <p className="measurement" >{songOne[musicalAttribute]}</p>
+                    <span style={{fontWeight:'500', fontSize:'18px'}}>{musicalAttribute}</span>
                 </div>
             </div>
             <div id="rightPanel" className="gamePanel" style={{backgroundImage:`url(${songTwo.image_url})`}}>
                 <div className="panelText">
                     <p className="songName">{songTwo.SONGNAME}</p>
-                    {/* has 
-                    <p className="" >{songTwo.danceability}</p> */}
+                    has
                     <button
                     className="answerBtn"
                     onClick={() => UpdateGameOrGameOver(true, songOne.danceability, songTwo.danceability)}
@@ -96,6 +104,7 @@ export default function Game() {
                     >
                         Lower <img src={Arrow} id="down-arrow" alt="down-arrow"/>
                     </button>
+                    <span style={{fontWeight:'500', fontSize:'18px'}}>{musicalAttribute} than {songOne.SONGNAME}</span>
                 </div>
                 
                 
