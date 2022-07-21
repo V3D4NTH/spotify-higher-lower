@@ -2,8 +2,8 @@ import {useState, useEffect} from 'react'
 import Score from './Score'
 import './Game.css'
 import './buttons.css'
-import db2010 from '../data/2010data.json'
-import db2020 from '../data/2020data.json'
+import db2010 from '../data/2010dataimage.json'
+import db2020 from '../data/2020dataimage.json'
 import Arrow from '../assets/arrow.svg'
 
 export default function Game() {
@@ -69,17 +69,17 @@ export default function Game() {
                 {gameOver && "game over"}
                 {!gameOver && "game on"}
             </div> */}
-            <div id="leftPanel" className="gamePanel">
-            <iframe src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="25%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <iframe src="https://open.spotify.com/embed/track/30bqVoKjX479ab90a8Pafp?utm_source=generator" width="50%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <div id="leftPanel" className="gamePanel" style={{backgroundImage:`url(${songOne.image_url})`}}>
+            <iframe src={`https://open.spotify.com/embed/track/${songOne.id}?utm_source=generator`} width="25%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <iframe src={`https://open.spotify.com/embed/track/${songTwo.id}?utm_source=generator`} width="50%" height="80" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             
                 <div className="panelText">
                     <p className="songName">{songOne.SONGNAME}</p>
                     has 
-                    <p className="" >{songOne.danceability}</p>
+                    <p className="measurement" >{songOne.danceability}</p>
                 </div>
             </div>
-            <div id="rightPanel" className="gamePanel">
+            <div id="rightPanel" className="gamePanel" style={{backgroundImage:`url(${songTwo.image_url})`}}>
                 <div className="panelText">
                     <p className="songName">{songTwo.SONGNAME}</p>
                     {/* has 
