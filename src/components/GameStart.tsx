@@ -26,12 +26,10 @@ export default function GameStart() {
                             key={mode} name="modeChoice" 
                             onChange={(e) => setGameMode(mode)}
                             required />
-                    <label className="modeLabel" 
-                            key={index} htmlFor={mode}>{mode}</label>
+                    <label className="modeLabel" key={index} htmlFor={mode}>{mode}</label>
                     <br />
                     </div>
-                )
-                    )}
+                ))}
                 </div>
                 <input type="submit" className='playBtn' value="Play"/>
             </form>
