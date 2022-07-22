@@ -1,0 +1,52 @@
+.GameStartContainer {
+    /* background-image: url("../assets/glasses-man.png"); */
+    background-image: url("../assets/carti-confused.gif");
+    background-size:cover;
+    background-repeat:no-repeat;
+    height:100vh;
+    width:100vw;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.66);
+    padding:1rem;
+    box-sizing:border-box;
+}
+
+.GameStartContainer h1 {
+    margin:0 0 0 0;
+    padding: 1.5rem 0 0 0;
+}
+
+.GameStartContainer h2 {
+    margin:0 0 0 0;
+    padding: 1.5rem;
+    font-weight:700;
+}
+
+.GameStartContainer p {
+    font-size:1.2rem;
+    font-weight:300;
+
+}
+
+
+.playBtn {
+    color: #fff989;
+    background: transparent;
+    border-radius: 30px;
+    width:200px;
+    border-color: white;
+    border-style: solid;
+    padding:1rem 2rem;
+    margin: 0.25rem;
+    font-size:1.2em;
+    transition: background-color 0.2s 0s ease-in;
+}
+
+.playBtn:hover {
+    color:black;
+    background: white;
+    cursor:pointer;
+}
+
+.playBtn:focus {
+    cursor:pointer;
+}

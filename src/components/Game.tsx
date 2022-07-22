@@ -1,10 +1,15 @@
 import {useState, useEffect} from 'react'
+import { motion } from 'framer-motion';
+
+
 import Score from './Score'
 import './Game.css'
 import './buttons.css'
 import db2010 from '../data/2010dataimage.json'
 import db2020 from '../data/2020dataimage.json'
 import Arrow from '../assets/arrow.svg'
+
+
 
 export default function Game() {
 
@@ -74,6 +79,7 @@ export default function Game() {
             </div>
 
                 <div className="centerIcon">
+                    <div>VS</div>
                 </div>
             
 
@@ -113,6 +119,7 @@ export default function Game() {
                 <Score scoreType="High Score" score={highScore} />
                 <Score scoreType="Current Score" score={currentScore} />
             </div>
+            
         </div>
         
     )
