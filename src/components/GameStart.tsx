@@ -9,27 +9,30 @@ export default function GameStart() {
 
     return (
         <div className="GameStartContainer">
-            <h1>Spotify Higher Or Lower</h1>
-            <h2>Which song has the greater musical component?</h2>      
+            <h1 style={{color:"green"}}>Spotify Higher Or Lower</h1>
+            <h2 style={{color:"red"}}>Which song has the greater musical component?</h2>      
             <p>
-                A frustratingly addictive game of higher or lower using musical data.
-            </p>
-            <p>
+                A frustratingly addictive game of higher or lower using musical data. <br></br>
                 The data is aggregated from Spotify API results from 2022.
             </p>
 
-
-            <form>
-                <h4>Choose mode:</h4>
-                {modes.map((mode) => (
-                    (<>
-                        <label>{mode}</label>
-                        <input type="radio" className="" value={mode} required />
-                    </>)
-                    
+            <form className="modeForm" onSubmit={(e) => e.preventDefault()}>
+                <h3>Choose mode:</h3>
+                <div className="li-container">
+                {modes.map((mode, index) => (
+                    <div className="labelInputPair">
+                    <input className="modeInput" 
+                            value={mode} id={mode} type="radio" 
+                            key={mode} name="modeChoice" 
+                            onChange={(e) => setGameMode(mode)}
+                            required />
+                    <label className="modeLabel" 
+                            key={index} htmlFor={mode}>{mode}</label>
+                    <br />
+                    </div>
                 )
                     )}
-
+                </div>
                 <input type="submit" className='playBtn' value="Play"/>
             </form>
 
