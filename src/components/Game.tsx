@@ -13,6 +13,9 @@ import Arrow from '../assets/arrow.svg'
 
 export default function Game(props:any) {
 
+
+    
+
     const getRandomSong = (_not:number, __not:number):number => {
         let randomNumber = Math.floor(Math.random() * db2020.length)
         if (randomNumber === _not || randomNumber === __not)
@@ -33,7 +36,6 @@ export default function Game(props:any) {
     const UpdateGameOrGameOver = (High:boolean, valOne:number, valTwo:number):void => {
 
         if (checkWin(High, valOne, valTwo) === true){
-            // setCurrentScore(currentScore + 1)
             props.updateGameScore(props.score + 1)
 
             let firstIndex = firstArrIndex
@@ -49,7 +51,6 @@ export default function Game(props:any) {
             
         }
         else {
-            // setGameOver(true)
             const prevHighScore = window.localStorage.getItem("High Score")
             if (prevHighScore === null || currentScore > parseInt(prevHighScore))
                 window.localStorage.setItem("High Score", currentScore.toString())
@@ -57,8 +58,6 @@ export default function Game(props:any) {
 
         }
     }
-
-    // const [gameOver, setGameOver] = useState(false)
 
     const [firstArrIndex, setFirstArrIndex] = useState(getRandomSong(-1, -1))
     const [songOne, setSongOne] = useState(db2020[firstArrIndex])
@@ -69,9 +68,10 @@ export default function Game(props:any) {
     const [highScore , setHighScore] = useState(window.localStorage.getItem("High Score") || 0)
     const [currentScore, setCurrentScore] = useState(0)
 
-    // const [musicalAttribute, setMusicalAttribute] = useState("danceability")
+    type musicalAttributeType = "danceability" | "energy" | "loudness" | "tempo" |"valence"
+    const modes = ["danceability", "energy", "loudness", "tempo", "valence"]
+    const musicalAttribute:musicalAttributeType = props.gameMode
 
-    const musicalAttribute:string = props.gameMode
 
     return (
         <div className="gameContainer">
@@ -81,8 +81,7 @@ export default function Game(props:any) {
                 </div>
 
             <div id="leftPanel" className="gamePanel" style={{backgroundImage:`url(${songOne.image_url})`}}>
-            <iframe src={`https://open.spotify.com/embed/track/${songOne.id}?utm_source=generator`}  height="80" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <iframe src={`https://open.spotify.com/embed/track/${songTwo.id}?utm_source=generator`}  height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <iframe src={`https://open.spotify.com/embed/track/${songOne.id}?utm_source=generator`}  height="80" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             
                 <div className="panelText">
                     <p className="songName">{songOne.SONGNAME}</p>
@@ -92,18 +91,21 @@ export default function Game(props:any) {
                 </div>
             </div>
             <div id="rightPanel" className="gamePanel" style={{backgroundImage:`url(${songTwo.image_url})`}}>
+                <iframe src={`https://open.spotify.com/embed/track/${songTwo.id}?utm_source=generator`}  height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                 <div className="panelText">
                     <p className="songName">{songTwo.SONGNAME}</p>
                     has
                     <button
                     className="answerBtn"
-                    onClick={() => UpdateGameOrGameOver(true, songOne.danceability, songTwo.danceability)}
+                    onClick={() => UpdateGameOrGameOver(true, songOne[musicalAttribute], 
+                        songTwo[musicalAttribute])}
                     >
                         Higher <img src={Arrow} id="up-arrow" alt="up-arrow"/>
                     </button>
                     <button
                         className="answerBtn"
-                        onClick={() => UpdateGameOrGameOver(false, songOne.danceability, songTwo.danceability)}
+                        onClick={() => UpdateGameOrGameOver(false, songOne[musicalAttribute], 
+                            songTwo[musicalAttribute])}
                     >
                         Lower <img src={Arrow} id="down-arrow" alt="down-arrow"/>
                     </button>
@@ -112,7 +114,6 @@ export default function Game(props:any) {
             </div>
             <div className="scoreContainer">
                 <Score scoreType="High Score" score={highScore} />
-                {/* <Score scoreType="Current Score" score={currentScore} /> */}
                 <Score scoreType="Current Score" score={props.score} />
 
             </div>
