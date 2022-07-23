@@ -7,11 +7,11 @@ export default function GameOver(props:any) {
     const [endingText, setEndingText] = useState("")
 
     useEffect(() => {
-        if (props.score < 6){
+        if (props.finalScore < 6){
             setImagePath("src/assets/carti-confused.gif")
             setEndingText("Did we make this too hard for you? We're pretty embarrassed for you right now.")
         }
-        else if (props.score < 16){
+        else if (props.finalScore < 16){
             setImagePath("src/assets/carti-happy.gif")
             setEndingText("This is a very respectable score. Good job.")
             
@@ -24,6 +24,17 @@ export default function GameOver(props:any) {
     }, [props.score])
     
     
+    const returnMainMenu = () =>{
+        props.updateGameScore(0)
+        props.startGame(false)
+        props.endGame(false)
+    }
+
+    const playAgain = () => {
+        props.updateGameScore(0)
+        props.startGame(true)
+        props.endGame(false)
+    }
 
     return (
         <div className="gameOverScreen" 
@@ -32,10 +43,14 @@ export default function GameOver(props:any) {
             <div className="gameOverContainer">
                 <p>
                     <span className="scoreText">You scored:</span><br></br><br></br>
-                    <span className="gameScore">{props.score}</span><br></br><br></br>
+                    <span className="gameScore">{props.finalScore}</span><br></br><br></br>
                     <span className="endingText">{endingText}</span><br></br><br></br>
-                    <button className="Btn">Back to menu</button>
-                    <button className="Btn">Play again</button>
+                    <button className="Btn" onClick={() => returnMainMenu()}>
+                        Back to menu
+                    </button>
+                    <button className="Btn" onClick={() => playAgain()}>
+                        Play again
+                    </button>
                 </p>
             </div>
             

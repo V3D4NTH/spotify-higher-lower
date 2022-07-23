@@ -2,10 +2,14 @@ import {useState} from 'react'
 import './GameStart.css'
 
 import glassesMan from '../assets/glasses-man.png'
-export default function GameStart() {
+export default function GameStart(props:any) {
 
     const modes = ["danceability", "energy", "loudness", "tempo", "valence"]
-    const [gameMode, setGameMode] = useState("")
+
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        props.startGame(true)
+    }
 
     return (
         <div className="GameStartContainer">
@@ -16,7 +20,7 @@ export default function GameStart() {
                 The data is aggregated from Spotify API results from 2022.
             </p>
 
-            <form className="modeForm" onSubmit={(e) => e.preventDefault()}>
+            <form className="modeForm" onSubmit={(e) => handleSubmit(e)}>
                 <h3>Choose mode:</h3>
                 <div className="li-container">
                 {modes.map((mode, index) => (
@@ -24,7 +28,7 @@ export default function GameStart() {
                     <input className="modeInput" 
                             value={mode} id={mode} type="radio" 
                             key={mode} name="modeChoice" 
-                            onChange={(e) => setGameMode(mode)}
+                            onChange={(e) => props.setMode(mode)}
                             required />
                     <label className="modeLabel" key={index} htmlFor={mode}>{mode}</label>
                     <br />
@@ -33,11 +37,6 @@ export default function GameStart() {
                 </div>
                 <input type="submit" className='playBtn' value="Play"/>
             </form>
-
-            
-
-            
-
         </div>
     )
 }
