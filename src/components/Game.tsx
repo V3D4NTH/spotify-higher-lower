@@ -13,9 +13,6 @@ import Arrow from '../assets/arrow.svg'
 
 export default function Game(props:any) {
 
-
-    
-
     const getRandomSong = (_not:number, __not:number):number => {
         let randomNumber = Math.floor(Math.random() * db2020.length)
         if (randomNumber === _not || randomNumber === __not)
@@ -52,8 +49,10 @@ export default function Game(props:any) {
         }
         else {
             const prevHighScore = window.localStorage.getItem("High Score")
-            if (prevHighScore === null || currentScore > parseInt(prevHighScore))
-                window.localStorage.setItem("High Score", currentScore.toString())
+            if (prevHighScore === null || props.score > parseInt(prevHighScore)){
+                window.localStorage.setItem("High Score", props.score.toString())
+                // setHighScore(window.localStorage.getItem("High Score"))
+            }
             props.endGame(true)
 
         }
@@ -69,7 +68,6 @@ export default function Game(props:any) {
     const [currentScore, setCurrentScore] = useState(0)
 
     type musicalAttributeType = "danceability" | "energy" | "loudness" | "tempo" |"valence"
-    const modes = ["danceability", "energy", "loudness", "tempo", "valence"]
     const musicalAttribute:musicalAttributeType = props.gameMode
 
 
