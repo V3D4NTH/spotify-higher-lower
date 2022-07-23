@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 
 import Score from './Score'
 import './Game.css'
 import './buttons.css'
-import db2010 from '../data/2010dataimage.json'
+// import db2010 from '../data/2010dataimage.json'
 import db2020 from '../data/2020dataimage.json'
 import Arrow from '../assets/arrow.svg'
 
@@ -87,7 +87,7 @@ export default function Game(props:any) {
                 <div className="panelText">
                     <p className="songName">{songOne.SONGNAME}</p>
                     has 
-                    <p className="measurement" >{songOne[musicalAttribute]}</p>
+                    <p className="measurement" >{songOne[musicalAttribute as keyof typeof songOne]}</p>
                     <span style={{fontWeight:'500', fontSize:'18px'}}>{musicalAttribute}</span>
                 </div>
             </div>

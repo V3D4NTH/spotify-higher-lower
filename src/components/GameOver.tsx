@@ -1,5 +1,8 @@
 import {useState, useEffect} from 'react'
 import './GameOver.css'
+import ConfusedCarti from '../assets/carti-confused.gif'
+import HappyCarti from '../assets/carti-happy.gif'
+import RockingCarti from '../assets/carti-rocking.gif'
 
 export default function GameOver(props:any) {
     
@@ -8,16 +11,16 @@ export default function GameOver(props:any) {
 
     useEffect(() => {
         if (props.finalScore < 6){
-            setImagePath("src/assets/carti-confused.gif")
+            setImagePath(ConfusedCarti)
             setEndingText("Did we make this too hard for you? We're pretty embarrassed for you right now.")
         }
         else if (props.finalScore < 16){
-            setImagePath("src/assets/carti-happy.gif")
+            setImagePath(HappyCarti)
             setEndingText("This is a very respectable score. Good job.")
             
         }
         else {
-            setImagePath("src/assets/carti-rocking.gif")
+            setImagePath(RockingCarti)
             setEndingText("Wow, well done! This is a very notable score, congrats!")
 
         }
