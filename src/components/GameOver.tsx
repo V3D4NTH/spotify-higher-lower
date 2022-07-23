@@ -3,7 +3,7 @@ import './GameOver.css'
 import ConfusedCarti from '../assets/carti-confused.gif'
 import HappyCarti from '../assets/carti-happy.gif'
 import RockingCarti from '../assets/carti-rocking.gif'
-
+ 
 export default function GameOver(props:any) {
     
     const [imagePath , setImagePath] = useState("")
