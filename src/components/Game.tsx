@@ -1,9 +1,9 @@
-import {useState, useEffect, useRef} from 'react'
-// import { motion } from 'framer-motion';
+import {useState} from 'react'
 
 import './Game.css'
 import './buttons.css'
 import './Score.css'
+
 // import db2010 from '../data/2010dataimage.json'
 import db2020 from '../data/2020dataimage.json'
 import Arrow from '../assets/arrow.svg'
@@ -33,15 +33,21 @@ export default function Game(props:any) {
             props.updateGameScore(props.score + 1)
 
             setButtonAnimate(true)
+            setTimeout(() => {
+                setAnimateGreen(true)
+
+            }, 1000)
+
 
             setTimeout(() => {
                 setScoreAnimate(true)
-            }, 1000)
+            }, 2000)
 
 
             setTimeout(() => {
                 setButtonAnimate(false)
                 setScoreAnimate(false)
+                setAnimateGreen(false)
                 
                 let firstIndex = firstArrIndex
                 let secondIndex = secondArrIndex
@@ -61,6 +67,14 @@ export default function Game(props:any) {
             setButtonAnimate(true)
 
             setTimeout(() => {
+                setAnimateRed(true)
+            }, 1000)
+
+            setTimeout(() => {
+                setButtonAnimate(false)
+                setAnimateRed(false)
+                
+
                 const prevHighScore = window.localStorage.getItem("High Score")
                 if (prevHighScore === null || props.score > parseInt(prevHighScore)){
                     window.localStorage.setItem("High Score", props.score.toString())
@@ -75,8 +89,8 @@ export default function Game(props:any) {
 
     const [scoreAnimate, setScoreAnimate] = useState(false)
     const [buttonAnimate, setButtonAnimate] = useState(false)
-    const [vsAnimate, setVSAnimate] = useState(false)
-
+    const [animateGreen, setAnimateGreen] = useState(false)
+    const [animateRed, setAnimateRed] = useState(false)
 
     const [firstArrIndex, setFirstArrIndex] = useState(getRandomSong(-1, -1))
     const [songOne, setSongOne] = useState(db2020[firstArrIndex])
@@ -92,7 +106,7 @@ export default function Game(props:any) {
 
     return (
         <div className="gameContainer">
-                <div className="centerIcon">
+                <div className={`centerIcon ${animateGreen ? "versus-green" : animateRed ? "versus-red" : ""}`}>
                     <div>VS</div>
                 </div>
 

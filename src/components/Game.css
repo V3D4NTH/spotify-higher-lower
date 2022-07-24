@@ -76,8 +76,6 @@ iframe {
     box-sizing:border-box;
 }
 
-
-
 .measurement {
     color: #fff989;
     font-size: 7vh;
@@ -85,17 +83,6 @@ iframe {
 }
 
 
-.centerIcon {
-    position:absolute;
-    width:100px;
-    height:100px;
-    background-color:white;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index:1;
-}
 
 .centerIcon div {
     width:100%;
@@ -138,5 +125,43 @@ iframe {
 }
 
 .animate-measurement {
-    animation: fadeIn 3s;
+    animation: fadeIn 1s;
+}
+
+@keyframes turnRed {
+    from {
+        background-color:white;
+    }
+    to {
+        background-color:red;
+    }
+}
+
+@keyframes turnGreen {
+    from {
+        background-color:white;
+    }
+    to {
+        background-color:rgb(19, 175, 19);
+    }
+}
+
+.centerIcon {
+    position:absolute;
+    width:100px;
+    height:100px;
+    background-color:white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index:1;
+}
+
+.versus-red {
+    animation: turnRed 1s;
+}
+
+.versus-green{
+    animation: turnGreen 1s;
 }
