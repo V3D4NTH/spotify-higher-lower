@@ -10,11 +10,11 @@ export default function GameOver(props:any) {
     const [endingText, setEndingText] = useState("")
 
     useEffect(() => {
-        if (props.finalScore < 6){
+        if (props.finalScore < 5){
             setImagePath(ConfusedCarti)
             setEndingText("Did we make this too hard for you? We're pretty embarrassed for you right now.")
         }
-        else if (props.finalScore < 16){
+        else if (props.finalScore < 10){
             setImagePath(HappyCarti)
             setEndingText("This is a very respectable score. Good job.")
             

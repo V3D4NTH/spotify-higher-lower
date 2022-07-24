@@ -43,7 +43,7 @@ iframe {
     }
     
     #rightPanel iframe:first-of-type{
-        
+
     }
 }
 
@@ -108,3 +108,32 @@ iframe {
     font-weight:700;
     color:black;
 }
+
+@keyframes grow-shrink {
+
+    0% {
+        font-size: 1.5rem;
+    }
+
+    50% {
+        font-size:2rem;
+    }
+
+    100% {
+        font-size:1.5rem;
+    }
+}
+
+.animate-text {
+    animation: grow-shrink 2s;
+}
+
+@keyframes fadeButton {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+

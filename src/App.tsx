@@ -12,9 +12,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Game />
-      <GameStart />
-      <GameOver score={12}/> */}
       <GameController />
     </div>
   )
