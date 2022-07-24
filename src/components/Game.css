@@ -109,7 +109,7 @@ iframe {
     color:black;
 }
 
-@keyframes grow-shrink {
+@keyframes growShrink {
 
     0% {
         font-size: 1.5rem;
@@ -124,16 +124,19 @@ iframe {
     }
 }
 
-.animate-text {
-    animation: grow-shrink 2s;
+.animate-score {
+    animation: growShrink 2s;
 }
 
-@keyframes fadeButton {
+@keyframes fadeIn {
     from {
-        opacity:1;
+        opacity:0;
     }
     to {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
+.animate-measurement {
+    animation: fadeIn 3s;
+}

@@ -33,9 +33,16 @@ export default function Game(props:any) {
         if (checkWin(High, valOne, valTwo) === true){
             props.updateGameScore(props.score + 1)
 
-            setAnimate(true)
+            setButtonAnimate(true)
+
             setTimeout(() => {
-                setAnimate(false)
+                setScoreAnimate(true)
+            }, 1000)
+
+
+            setTimeout(() => {
+                setButtonAnimate(false)
+                setScoreAnimate(false)
                 
                 let firstIndex = firstArrIndex
                 let secondIndex = secondArrIndex
@@ -48,20 +55,29 @@ export default function Game(props:any) {
                 setSecondArrIndex(randomNum)
                 setSongTwo(db2020[randomNum])
 
-            }, 1000)
+            }, 3000)
 
         }
         else {
-            const prevHighScore = window.localStorage.getItem("High Score")
-            if (prevHighScore === null || props.score > parseInt(prevHighScore)){
-                window.localStorage.setItem("High Score", props.score.toString())
-            }
-            props.endGame(true)
+            setButtonAnimate(true)
+
+            setTimeout(() => {
+                const prevHighScore = window.localStorage.getItem("High Score")
+                if (prevHighScore === null || props.score > parseInt(prevHighScore)){
+                    window.localStorage.setItem("High Score", props.score.toString())
+                }
+                props.endGame(true)
+            }, 3000)
+
+            
 
         }
     }
 
-    const [animate, setAnimate] = useState(false)
+    const [scoreAnimate, setScoreAnimate] = useState(false)
+    const [buttonAnimate, setButtonAnimate] = useState(false)
+    const [vsAnimate, setVSAnimate] = useState(false)
+
 
     const [firstArrIndex, setFirstArrIndex] = useState(getRandomSong(-1, -1))
     const [songOne, setSongOne] = useState(db2020[firstArrIndex])
@@ -98,10 +114,15 @@ export default function Game(props:any) {
                 <div className="panelText">
                     <p className="songName">{songTwo.SONGNAME}</p>
                     has
-
-                    {animate ? (<p className="measurement" >
+                    {/* 
+                        disappear buttons then fade in number
+                    */}
+                    {buttonAnimate ? (
+                    <p className={`measurement ${buttonAnimate ? "animate-measurement" : ""}`} >
                         {songTwo[musicalAttribute as keyof typeof songTwo]}
-                    </p>)  :
+                    </p>)  
+                    
+                    :
                     (<div className="buttonContainer">
                         <button
                         className="answerBtn"
@@ -130,7 +151,7 @@ export default function Game(props:any) {
                 <h2 className="scoreKeeper">
                     High Score: {highScore}
                 </h2>
-                <h2 className={`scoreKeeper ${animate ? "animate-text" : ""}`} >
+                <h2 className={`scoreKeeper ${scoreAnimate ? "animate-score" : ""}`} >
                     Current Score: {highScore}
                 </h2>
             </div>
