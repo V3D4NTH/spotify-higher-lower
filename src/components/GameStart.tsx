@@ -1,7 +1,4 @@
-import {useState} from 'react'
 import './GameStart.css'
-
-import glassesMan from '../assets/glasses-man.png'
 export default function GameStart(props:any) {
 
     const modes = ["danceability", "energy", "loudness", "tempo", "valence"]

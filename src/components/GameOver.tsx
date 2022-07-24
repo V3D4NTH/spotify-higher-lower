@@ -56,9 +56,6 @@ export default function GameOver(props:any) {
                     </button>
                 </p>
             </div>
-            
         </div>
-
-        
     )
 }

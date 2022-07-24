@@ -1,7 +1,6 @@
 import {useState, useEffect, useRef} from 'react'
 // import { motion } from 'framer-motion';
 
-// import Score from './Score'
 import './Game.css'
 import './buttons.css'
 import './Score.css'
@@ -114,14 +113,10 @@ export default function Game(props:any) {
                 <div className="panelText">
                     <p className="songName">{songTwo.SONGNAME}</p>
                     has
-                    {/* 
-                        disappear buttons then fade in number
-                    */}
                     {buttonAnimate ? (
                     <p className={`measurement ${buttonAnimate ? "animate-measurement" : ""}`} >
                         {songTwo[musicalAttribute as keyof typeof songTwo]}
                     </p>)  
-                    
                     :
                     (<div className="buttonContainer">
                         <button

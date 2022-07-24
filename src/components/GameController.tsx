@@ -29,12 +29,5 @@ export default function GameController() {
             {(gameEnded && <GameOver finalScore={gameScore} updateGameScore={setGameScore} startGame={setGameStarted} endGame={setGameEnded}/>)}
         
         </>
-    
-
-
-
-
     )
-
-
 }
