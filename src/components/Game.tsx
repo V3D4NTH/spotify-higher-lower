@@ -60,7 +60,7 @@ export default function Game(props:any) {
                 setSecondArrIndex(randomNum)
                 setSongTwo(db2020[randomNum])
 
-            }, 3000)
+            }, 4000)
 
         }
         else {
@@ -80,7 +80,7 @@ export default function Game(props:any) {
                     window.localStorage.setItem("High Score", props.score.toString())
                 }
                 props.endGame(true)
-            }, 3000)
+            }, 4000)
 
             
 

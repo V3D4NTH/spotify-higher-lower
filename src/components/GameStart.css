@@ -1,5 +1,7 @@
 .GameStartContainer {
-    background-image: url("../assets/glasses-man.png");
+    background-image: url("../assets/carti-computer.jpg");
+    background-size: cover;
+    background-position: right center;
     min-height:100vh;
     height:auto;
     width:100vw;
