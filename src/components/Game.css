@@ -1,7 +1,6 @@
 .gameContainer {
     width:100vw;
     height:100vh;    
-    /* min-height:100vh; */
 }
 
 .gamePanel {
@@ -28,25 +27,6 @@ iframe {
 }
 
 
-@media screen and (max-width:825px) {
-    .gamePanel {
-        width:100%;
-        height:50%;
-    }
-    iframe {
-        position:relative;
-        border-radius: 12px;
-        height:80px;
-        width:100%;
-        margin-top:0px;
-        top:0;
-    }
-    
-    #rightPanel iframe:first-of-type{
-
-    }
-}
-
 .gameContainer h2 {
     margin:0;
 }
@@ -63,7 +43,8 @@ iframe {
 
 .songName {
     font-size: 3.5vh;
-    margin:-30px 0 30px 0;
+    /* margin:-30px 0 30px 0; */
+    margin:0;
     font-weight:700;
     word-wrap: break-word;
 }
@@ -82,7 +63,17 @@ iframe {
     font-weight:600;
 }
 
-
+.centerIcon {
+    position:absolute;
+    width:100px;
+    height:100px;
+    background-color:white;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index:1;
+}
 
 .centerIcon div {
     width:100%;
@@ -146,17 +137,7 @@ iframe {
     }
 }
 
-.centerIcon {
-    position:absolute;
-    width:100px;
-    height:100px;
-    background-color:white;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index:1;
-}
+
 
 .versus-red {
     animation: turnRed 1s;
@@ -164,4 +145,53 @@ iframe {
 
 .versus-green{
     animation: turnGreen 1s;
+}
+
+
+@media screen and (max-width:825px) {
+    .gamePanel {
+        width:100%;
+        height:50%;
+    }
+
+
+    .scoreContainer {
+        /* font-size:1.5em; */
+        top:0;
+        bottom:auto;
+        padding:1px;
+        margin:0;
+        box-sizing:border-box;
+    }
+    .scoreContainer h2 {
+        font-size:1em;
+    }
+
+    .centerIcon {
+        width:75px;
+        height:75px;
+        left:50px;
+    }
+    .centerIcon div {
+        font-size:1.5em;
+    }
+    iframe {
+        position:relative;
+        height:80px;
+        width:80px;
+    }
+    @keyframes growShrinkMini {
+        0% {
+            font-size: 1em;
+        }
+        50% {
+            font-size:1.5em;
+        }
+        100% {
+            font-size:1em;
+        }
+    }
+    .animate-score {
+        animation: growShrinkMini 2s;
+    }
 }

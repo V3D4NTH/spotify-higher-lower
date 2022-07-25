@@ -79,6 +79,7 @@ export default function Game(props:any) {
                 if (prevHighScore === null || props.score > parseInt(prevHighScore)){
                     window.localStorage.setItem("High Score", props.score.toString())
                 }
+                props.updateGameScore(0)
                 props.endGame(true)
             }, 4000)
 
@@ -151,19 +152,20 @@ export default function Game(props:any) {
 
                     
                     <span style={{fontWeight:'500', fontSize:'18px'}}>{musicalAttribute} than {songOne.SONGNAME}</span>
+                    
                 </div>
             </div>
             
-            
-            
             <div className="scoreContainer">
-                <h2 className="scoreKeeper">
-                    High Score: {highScore}
-                </h2>
-                <h2 className={`scoreKeeper ${scoreAnimate ? "animate-score" : ""}`} >
-                    Current Score: {highScore}
-                </h2>
-            </div>
+                        <h2 className="scoreKeeper">
+                            High Score: {highScore}
+                        </h2>
+                        <h2 className={`scoreKeeper ${scoreAnimate ? "animate-score" : ""}`} >
+                            Current Score: {props.score}
+                        </h2>
+                    </div>
+            
+            
         
         
         
