@@ -21,7 +21,8 @@ Data originally collected from Spotify API for a music [research project](https:
 
 #### Technologies:
 
-- HTML/CSS/JS
+- HTML/CSS
+- Typescript
 - React
 - Vite
 - Spotify API (for preloading data)
