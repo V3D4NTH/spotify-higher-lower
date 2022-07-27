@@ -39,17 +39,15 @@ npm install
 npm run dev
 ```
 
+[Back To The Top](#spotify-higher-or-lower-game)
 ---
 
 ## References
-[Back To The Top](#spotify-higher-or-lower-game)
 
 - [Research Project](https://github.com/EdwardX29/MusicMeta_DataAnalysis/)
 - [Data source](https://github.com/EdwardX29/MusicMeta_DataAnalysis/Spotify/Data)
 
 ---
-
-
 
 ## Author Info
 
