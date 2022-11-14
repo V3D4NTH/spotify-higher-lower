@@ -79,7 +79,7 @@ export default function Game(props:any) {
                 if (prevHighScore === null || props.score > parseInt(prevHighScore)){
                     window.localStorage.setItem("High Score", props.score.toString())
                 }
-                props.updateGameScore(0)
+                // props.updateGameScore(0)
                 props.endGame(true)
             }, 4000)
 
