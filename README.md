@@ -9,7 +9,6 @@
 - [Description](#description)
 - [How To Use](#how-to-use)
 - [References](#references)
-- [Author Info](#author-info)
 
 ---
 
@@ -49,8 +48,5 @@ npm run dev
 
 ---
 
-## Author Info
-
-- Github - [EdwardX29](https://github.com/EdwardX29)
 
 [Back To The Top](#spotify-higher-or-lower-game)
